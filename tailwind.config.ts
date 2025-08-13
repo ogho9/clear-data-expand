@@ -61,7 +61,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				grid: {
+					background: 'hsl(var(--grid-background))',
+					border: 'hsl(var(--grid-border))',
+					hover: 'hsl(var(--grid-hover))',
+					selected: 'hsl(var(--grid-selected))',
+					header: 'hsl(var(--grid-header))',
+					text: 'hsl(var(--grid-text))',
+					'text-secondary': 'hsl(var(--grid-text-secondary))'
 				}
+			},
+			boxShadow: {
+				'sm': 'var(--shadow-sm)',
+				'md': 'var(--shadow-md)',
+				'lg': 'var(--shadow-lg)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
