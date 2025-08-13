@@ -21,7 +21,7 @@ interface GridRowData {
   moreInfo: string;
 }
 
-// Sample data with various description lengths
+// Sample data with various description lengths including very long ones
 const sampleData: GridRowData[] = [
   {
     id: '1',
@@ -38,7 +38,7 @@ const sampleData: GridRowData[] = [
   {
     id: '3',
     value: 'Platform C',
-    description: 'Comprehensive platform designed for modern businesses that need scalable solutions to manage their operations, streamline workflows, and enhance productivity across multiple departments and teams.',
+    description: 'Comprehensive platform designed for modern businesses that need scalable solutions to manage their operations, streamline workflows, and enhance productivity across multiple departments and teams. This platform includes advanced features like real-time collaboration, automated reporting, custom integrations, and extensive API support. It can handle large volumes of data and users while maintaining high performance and reliability. The system is built with security in mind and complies with industry standards and regulations.',
     moreInfo: 'The platform includes modules for project management, customer relationship management, financial tracking, and reporting. It supports API integrations, custom workflows, and advanced automation features.',
   },
   {
@@ -50,7 +50,7 @@ const sampleData: GridRowData[] = [
   {
     id: '5',
     value: 'Solution E',
-    description: 'End-to-end solution.',
+    description: 'End-to-end solution with extremely long description to test scrolling functionality. This solution provides comprehensive coverage of all business needs including but not limited to customer management, inventory tracking, financial reporting, employee management, project coordination, vendor relationships, compliance monitoring, data analytics, performance metrics, quality assurance, risk management, and strategic planning. The solution is designed to scale with your business and adapt to changing requirements over time.',
     moreInfo: 'Complete solution covering everything from initial setup to ongoing maintenance and support.',
   },
 ];
@@ -102,19 +102,20 @@ const DataGrid: React.FC = () => {
         headerName: 'Value',
         field: 'value',
         width: 150,
-        cellClass: 'font-medium',
+        cellClass: 'font-medium flex items-center justify-center',
         sortable: true,
         filter: true,
+        cellStyle: { textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' },
       },
       {
         headerName: 'Description',
         field: 'description',
         flex: 1,
         cellRenderer: DescriptionCellRenderer,
-        autoHeight: true,
         wrapText: true,
         sortable: true,
         filter: true,
+        cellStyle: { display: 'flex', alignItems: 'flex-start' },
       },
       {
         headerName: 'Details',
@@ -142,7 +143,7 @@ const DataGrid: React.FC = () => {
     enableCellTextSelection: true,
     ensureDomOrder: true,
     suppressRowClickSelection: true,
-    domLayout: 'autoHeight' as const,
+    rowHeight: 80, // Fixed row height since we're using scrollable descriptions
   };
 
   return (
