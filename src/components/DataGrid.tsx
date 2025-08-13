@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { ColDef, GridOptions } from 'ag-grid-community';
+import { ColDef, GridOptions, ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { ChevronDown, ChevronRight, Info } from 'lucide-react';
@@ -10,6 +10,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+
+// Register AG Grid modules
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 interface GridRowData {
   id: string;
